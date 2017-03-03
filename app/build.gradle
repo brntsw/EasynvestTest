@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "easynvest.bruno.com.easynvesttest"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+
+    //Jackson
+    compile "com.fasterxml.jackson.core:jackson-core:$rootProject.jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-annotations:$rootProject.jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$rootProject.jacksonVersion"
+
+    //Butterknife
+    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+
+    //Local unit tests
+    testCompile "junit:junit:$rootProject.junitVersion"
+    testCompile "org.mockito:mockito-core:$rootProject.mockitoVersion"
+
+    //UI tests
+    androidTestCompile("com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+}
