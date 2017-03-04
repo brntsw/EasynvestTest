@@ -1,18 +1,28 @@
 package easynvest.bruno.com.easynvesttest.modelo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Created by Bruno on 03/03/2017.
  */
 
 public class Cell {
 
+    @JsonProperty("id")
     private int id;
+    @JsonProperty("type")
     private int type;
+    @JsonProperty("message")
     private String message;
-    private int typeField;
+    @JsonProperty("typefield")
+    private String typeField; //It can be int (check on demand)
+    @JsonProperty("hidden")
     private boolean hidden;
+    @JsonProperty("topSpacing")
     private double topSpacing;
+    @JsonProperty("show")
     private int show;
+    @JsonProperty("required")
     private boolean required;
 
     public int getId() {
@@ -39,11 +49,11 @@ public class Cell {
         this.message = message;
     }
 
-    public int getTypeField() {
+    public String getTypeField() {
         return typeField;
     }
 
-    public void setTypeField(int typeField) {
+    public void setTypeField(String typeField) {
         this.typeField = typeField;
     }
 
