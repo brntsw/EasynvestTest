@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
@@ -15,6 +16,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 
@@ -34,6 +36,7 @@ ext{
     calligraphyVersion = '2.2.0'
     jacksonVersion = '2.8.0'
     butterknifeVersion = '8.5.1'
+    chartVersion = 'v3.0.1'
 
     //Test
     junitVersion = '4.12'

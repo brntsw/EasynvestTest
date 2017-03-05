@@ -29,7 +29,11 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
 
+    //Calligraphy
     compile "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    //Chart
+    compile "com.github.PhilJay:MPAndroidChart:$rootProject.chartVersion"
 
     //Jackson
     compile "com.fasterxml.jackson.core:jackson-core:$rootProject.jacksonVersion"

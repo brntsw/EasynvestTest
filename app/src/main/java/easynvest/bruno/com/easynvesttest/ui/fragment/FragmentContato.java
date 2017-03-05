@@ -135,7 +135,6 @@ public class FragmentContato extends BaseFragment {
                                 helper.setSucessoCurrentPage(true);
 
                                 ((MainActivity)getActivity()).setSucessoPager();
-                                //Replace para o FragmentSucesso
 
                             }
                         }

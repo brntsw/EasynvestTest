@@ -3,6 +3,15 @@
     <string name="investimento">Investimento</string>
     <string name="contato">Contato</string>
 
+    <!-- Validation -->
     <string name="email_invalido">Digite um email válido</string>
     <string name="telefone_invalido">Digite um telefone válido</string>
+
+    <!-- Informações sobre investimento -->
+    <string name="fundo">Fundo</string>
+    <string name="cdi">CDI</string>
+    <string name="no_mes">No mês</string>
+    <string name="no_ano">No ano</string>
+    <string name="doze_meses">12 meses</string>
+
 </resources>

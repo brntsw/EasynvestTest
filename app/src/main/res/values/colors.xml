@@ -13,4 +13,9 @@
     <color name="valid_field">#78c54a</color>
     <color name="error_field">#ff3d3d</color>
     <color name="obrigado">#909090</color>
+    <color name="title_investimento">#777</color>
+    <color name="title_blue">#4786cf</color>
+    <color name="text_investimento">#999</color>
+    <color name="separador">#999</color>
+    <color name="link">#4786cf</color>
 </resources>
