@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">EasynvestTest</string>
+    <string name="app_name">Easynvest Test</string>
+    <string name="investimento">Investimento</string>
+    <string name="contato">Contato</string>
 </resources>

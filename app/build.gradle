@@ -27,6 +27,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
 
     //Jackson
     compile "com.fasterxml.jackson.core:jackson-core:$rootProject.jacksonVersion"

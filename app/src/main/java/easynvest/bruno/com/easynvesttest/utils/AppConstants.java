@@ -6,6 +6,10 @@ package easynvest.bruno.com.easynvesttest.utils;
 
 public class AppConstants {
 
+    //Tabs
+    public static final int TAB_INVESTIMENTO = 0;
+    public static final int TAB_CONTATO = 1;
+
     //Contato - types (cells.json)
     public static final int EDITTEXT_TYPE = 1;
     public static final int TEXTVIEW_TYPE = 2;

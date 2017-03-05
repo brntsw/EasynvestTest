@@ -1,45 +1,39 @@
 package easynvest.bruno.com.easynvesttest.ui.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.support.v7.widget.Toolbar;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import easynvest.bruno.com.easynvesttest.R;
-import easynvest.bruno.com.easynvesttest.modelo.Cell;
-import easynvest.bruno.com.easynvesttest.modelo.ListCell;
-import easynvest.bruno.com.easynvesttest.modelo.screen.ScreenMapper;
+import easynvest.bruno.com.easynvesttest.ui.adapter.TabsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.sliding_tabs)
+    TabLayout tabLayout;
+
+    @BindView(R.id.pager)
+    ViewPager viewPager;
+
+    TabsPagerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_formulario);
+        setContentView(R.layout.activity_main);
 
-        //Teste de leitura dos arquivos json
-        ObjectMapper mapper = new ObjectMapper();
+        ButterKnife.bind(this);
 
-        try {
-            ListCell cells = mapper.readValue(getAssets().open("cells.json"), ListCell.class);
+        mAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 
-            for(Cell cell : cells.getListCells()){
-                Log.d("Cell", cell.getMessage());
-            }
-
-            ScreenMapper screen = mapper.readValue(getAssets().open("fund.json"), ScreenMapper.class);
-
-            Log.d("Screen title", screen.getScreen().getTitle());
-
-            for(double cdiPoint : screen.getScreen().getGraph().getCdiPoints()){
-                Log.d("Graph cdi point", cdiPoint+"");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        viewPager.setAdapter(mAdapter);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
