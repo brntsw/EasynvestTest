@@ -10,4 +10,7 @@
     <color name="bg_color">#f7f7f7</color>
     <color name="tab_normal">#4a90e2</color>
     <color name="tab_selected">#4786cf</color>
+    <color name="valid_field">#78c54a</color>
+    <color name="error_field">#ff3d3d</color>
+    <color name="obrigado">#909090</color>
 </resources>

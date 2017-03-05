@@ -29,6 +29,8 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
 
+    compile "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
     //Jackson
     compile "com.fasterxml.jackson.core:jackson-core:$rootProject.jacksonVersion"
     compile "com.fasterxml.jackson.core:jackson-annotations:$rootProject.jacksonVersion"

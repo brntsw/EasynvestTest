@@ -2,4 +2,7 @@
     <string name="app_name">Easynvest Test</string>
     <string name="investimento">Investimento</string>
     <string name="contato">Contato</string>
+
+    <string name="email_invalido">Digite um email válido</string>
+    <string name="telefone_invalido">Digite um telefone válido</string>
 </resources>

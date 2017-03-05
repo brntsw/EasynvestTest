@@ -31,6 +31,7 @@ ext{
 
     //Libraries
     supportLibraryVersion = '25.2.0'
+    calligraphyVersion = '2.2.0'
     jacksonVersion = '2.8.0'
     butterknifeVersion = '8.5.1'
 

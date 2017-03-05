@@ -1,19 +1,23 @@
 package easynvest.bruno.com.easynvesttest.ui;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.CompoundButtonCompat;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.text.InputType;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import easynvest.bruno.com.easynvesttest.R;
 import easynvest.bruno.com.easynvesttest.modelo.Cell;
+import easynvest.bruno.com.easynvesttest.utils.UIUtils;
 
 /**
  * Created by Bruno on 04/03/2017.
@@ -21,7 +25,24 @@ import easynvest.bruno.com.easynvesttest.modelo.Cell;
 
 public class UIGeneratorContato {
 
+    public static TextView getTextView(Context context, Cell cell){
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        textParams.setMargins(0, (int)cell.getTopSpacing(), 0, 20);
+        TextView textView = new TextView(context);
+        textView.setId(cell.getId());
+        textView.setText(cell.getMessage());
+        textView.setTag(cell.isRequired());
+        textView.setLayoutParams(textParams);
+        textView.setPadding(0, 0, 0, 10);
+        if(cell.isHidden()){
+            textView.setVisibility(View.GONE);
+        }
+        else{
+            textView.setVisibility(View.VISIBLE);
+        }
 
+        return textView;
+    }
 
     public static TextInputLayout getTextInputLayout(Context context, Cell cell){
         LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -30,12 +51,19 @@ public class UIGeneratorContato {
         editText.setId(cell.getId());
         if(cell.getTypeField().equals("telnumber")){
             editText.setInputType(InputType.TYPE_CLASS_PHONE);
+            UIUtils.setPhoneMaskListener(editText);
         }
         else{
-            editText.setInputType(Integer.parseInt(cell.getTypeField()));
+            if(cell.getTypeField().equals("3")){
+                editText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+            }
+            else{
+                editText.setInputType(InputType.TYPE_CLASS_TEXT);
+            }
         }
         editText.setTextColor(ContextCompat.getColor(context, R.color.black));
         editText.setHint(cell.getMessage());
+        editText.setTag(cell.isRequired());
         editText.setLayoutParams(editParams);
         if(cell.isHidden()){
             editText.setVisibility(View.GONE);
@@ -52,13 +80,14 @@ public class UIGeneratorContato {
         return textInputLayout;
     }
 
-    public static CheckBox getCheckBox(Context context, Cell cell){
+    public static AppCompatCheckBox getCheckBox(Context context, Cell cell){
         LinearLayout.LayoutParams checkBoxParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        checkBoxParams.setMargins(0, (int)cell.getTopSpacing(), 0, 0);
-        CheckBox checkBox = new CheckBox(context);
+        checkBoxParams.setMargins(0, (int)cell.getTopSpacing(), 0, 20);
+        AppCompatCheckBox checkBox = new AppCompatCheckBox(context);
         checkBox.setId(cell.getId());
         checkBox.setLayoutParams(checkBoxParams);
         checkBox.setText(cell.getMessage());
+        checkBox.setTag(cell.getShow()); //O id do elemento a ser exibido se estiver checked
         checkBox.setTextColor(ContextCompat.getColor(context, R.color.text_color_hint));
         if(cell.isHidden()){
             checkBox.setVisibility(View.GONE);
@@ -66,6 +95,19 @@ public class UIGeneratorContato {
         else{
             checkBox.setVisibility(View.VISIBLE);
         }
+
+        ColorStateList colorStateList = new ColorStateList(
+                new int[][]{
+                        new int[]{-android.R.attr.state_checked}, // unchecked
+                        new int[]{android.R.attr.state_checked} // checked
+                },
+                new int[]{
+                        ContextCompat.getColor(context, R.color.text_color_hint),
+                        ContextCompat.getColor(context, R.color.tab_normal)
+                }
+        );
+
+        CompoundButtonCompat.setButtonTintList(checkBox,colorStateList);
 
         return checkBox;
     }

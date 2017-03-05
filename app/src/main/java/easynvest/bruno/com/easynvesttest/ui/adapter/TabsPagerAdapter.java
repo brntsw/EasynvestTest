@@ -1,11 +1,14 @@
 package easynvest.bruno.com.easynvesttest.ui.adapter;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import easynvest.bruno.com.easynvesttest.data.prefs.AppPreferencesHelper;
 import easynvest.bruno.com.easynvesttest.ui.fragment.FragmentContato;
 import easynvest.bruno.com.easynvesttest.ui.fragment.FragmentInvestimento;
+import easynvest.bruno.com.easynvesttest.ui.fragment.FragmentSucesso;
 import easynvest.bruno.com.easynvesttest.utils.AppConstants;
 
 /**
@@ -15,9 +18,11 @@ import easynvest.bruno.com.easynvesttest.utils.AppConstants;
 public class TabsPagerAdapter extends FragmentPagerAdapter {
     private final int TAB_COUNT = 2;
     private String tabTitles[] = new String[]{"Investimento", "Contato"};
+    private Context context;
 
-    public TabsPagerAdapter(FragmentManager fm){
+    public TabsPagerAdapter(Context context, FragmentManager fm){
         super(fm);
+        this.context = context;
     }
 
     @Override
@@ -26,7 +31,13 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             case AppConstants.TAB_INVESTIMENTO:
                 return new FragmentInvestimento();
             case AppConstants.TAB_CONTATO:
-                return new FragmentContato();
+                AppPreferencesHelper helper = new AppPreferencesHelper(context);
+                if(helper.isSucessoCurrentPage()){
+                    return new FragmentSucesso();
+                }
+                else{
+                    return new FragmentContato();
+                }
         }
 
         return null;
