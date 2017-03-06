@@ -79,7 +79,50 @@
                 android:gravity="center_horizontal"
                 tools:text="Grau de risco de investimento"/>
 
-            <!-- View com os graus de risco -->
+            <LinearLayout
+                android:id="@+id/graus_risco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp">
+                
+                <View
+                    android:id="@+id/risk_one"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/risk_one"/>
+
+                <View
+                    android:id="@+id/risk_two"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/risk_two"/>
+
+                <View
+                    android:id="@+id/risk_three"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/risk_three"/>
+
+                <View
+                    android:id="@+id/risk_four"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/risk_four"/>
+
+                <View
+                    android:id="@+id/risk_five"
+                    android:layout_width="0dp"
+                    android:layout_height="10dp"
+                    android:layout_weight="1"
+                    android:background="@color/risk_five"/>
+                
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_info_title"

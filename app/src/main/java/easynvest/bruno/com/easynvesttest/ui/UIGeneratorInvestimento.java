@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.text.util.Linkify;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -61,6 +62,11 @@ public class UIGeneratorInvestimento {
 
         lineChart.setData(data);
         lineChart.animateY(5000);
+    }
+
+    public static void setGrauRisco(LinearLayout linearGrausRisco, int risk){
+        View view = linearGrausRisco.getChildAt(risk - 1);
+        view.getLayoutParams().height = 60;
     }
 
     public static void createInfoLayout(Context context, LinearLayout linearInfo, List<Info> infos, List<DownInfo> downInfos){

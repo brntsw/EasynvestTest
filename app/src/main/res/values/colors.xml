@@ -18,4 +18,11 @@
     <color name="text_investimento">#999</color>
     <color name="separador">#999</color>
     <color name="link">#4786cf</color>
+
+    <!-- Risks -->
+    <color name="risk_one">#74d961</color>
+    <color name="risk_two">#4ac06b</color>
+    <color name="risk_three">#ffc010</color>
+    <color name="risk_four">#ff742b</color>
+    <color name="risk_five">#ff3534</color>
 </resources>

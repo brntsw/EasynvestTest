@@ -47,6 +47,9 @@ public class FragmentInvestimento extends BaseFragment {
     @BindView(R.id.tv_risk_title)
     TextView tvRiskTitle;
 
+    @BindView(R.id.graus_risco)
+    LinearLayout linearGrausRisco;
+
     @BindView(R.id.tv_info_title)
     TextView tvInfoTitle;
 
@@ -102,6 +105,7 @@ public class FragmentInvestimento extends BaseFragment {
             tvRiskTitle.setText(screen.getScreen().getRiskTitle());
 
             //View com os graus de risco
+            UIGeneratorInvestimento.setGrauRisco(linearGrausRisco, screen.getScreen().getRisk());
 
             tvInfoTitle.setText(screen.getScreen().getInfoTitle());
             tvMonthFund.setText(screen.getScreen().getMoreInfo().getMonth().getFund() + "%");
